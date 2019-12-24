@@ -1,0 +1,60 @@
+body {
+	background-image: url(../images/tileable_wood_texture-min.png);
+}
+.navbar {
+	background-color: url(../images/country-quilt-min.png);
+}
+.main-container {
+	box-shadow: 0 0 22px rgb(132, 85, 24);
+	margin-top: 60px;
+	background-image: url(../images/country-quilt-min.png);
+	line-height: 2em;
+}
+.head-container {
+	text-align: center;
+	margin-top: 20px;
+	color: black;
+}
+.row {
+	margin: 25px;
+}
+.question {
+	/* border-radius: 20px;
+	height: 25%;
+	background-color: rgb(112, 156, 156); */
+	font-size: 28px;
+	/* color: rgb(4, 203, 40); */
+	text-align: center;
+	font-style: italic;
+}
+
+/* hides the answer buttons.  */
+.answer {
+	display: none;
+}
+.btn {
+	background-color: indigo;
+	width: 80%;
+	margin: auto;
+}
+.btn:hover {
+	box-shadow: 0 0 10px rgb(117, 14, 191);
+	background-color: rgb(117, 14, 191);
+}
+@media (max-width: 680px) {
+	body {
+		background-color: rgb(62, 62, 62);
+	}
+	.navbar {
+		padding: 0;
+	}
+	.btn {
+		background-color: indigo;
+		width: 100%;
+		/* margin: 0 auto; */
+	}
+	.main-container {
+		padding: 0;
+		margin: 0 auto;
+	}
+}
