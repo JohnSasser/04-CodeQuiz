@@ -18,7 +18,7 @@ body {
 .row {
 	margin: 25px;
 }
-.question {
+.questions {
 	/* border-radius: 20px;
 	height: 25%;
 	background-color: rgb(112, 156, 156); */
@@ -30,6 +30,9 @@ body {
 
 /* hides the answer buttons.  */
 .answer {
+	display: none;
+}
+.start-hide {
 	display: none;
 }
 .btn {
