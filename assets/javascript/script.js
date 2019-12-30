@@ -4,6 +4,8 @@ var questionArr = [];
 // use to track questions asked;
 var countQuestion = 0;
 //
+var $buttons = $("#button1, #button2, #button3, #button4");
+
 var questions = [
 	{
 		title: "Commonly used data types DO NOT include:",
@@ -50,9 +52,6 @@ var questions = [
 		answer: "<body>"
 	}
 ];
-var titleQ = questions[countQuestion].title;
-var choicesQ = questions[countQuestion].choice;
-var answerQ = questions[countQuestion].answer;
 // let shuffledQuestion = questions[Math.random(Math.floor() * questions.length)];
 // begin the game;
 $(".questions").text(
@@ -69,34 +68,25 @@ function startGame() {
 // get a question & get a new question.
 function getQuestion() {
 	if (countQuestion < questions.length) {
-		$(".questions").text(titleQ);
-		$("#button1").text(choicesQ[0]);
-		$("#button2").text(choicesQ[1]);
-		$("#button3").text(choicesQ[2]);
-		$("#button4").text(choicesQ[3]);
+		$(".questions").text(questions[countQuestion].title);
+
+		// todo: generate buttons from choices
+		$buttons.each(function(i) {
+			var $button = $(this);
+			$button.text(questions[countQuestion].choice[i]);
+		});
 	}
 }
-function getNextQuestion() {
-	console.log("boom!!");
-	countQuestion++;
-	console.log("countQuestion" + countQuestion);
-	if (countQuestion < questions.length) {
-		$(".questions").text(titleQ);
-		$("#button1").text(choicesQ[0]);
-		$("#button2").text(choicesQ[1]);
-		$("#button3").text(choicesQ[2]);
-		$("#button4").text(choicesQ[3]);
-		console.log(countQuestion);
-	}
-}
-$("#button1, #button2, #button3, #button4").on("click", function() {
-	if (choicesQ == answerQ) {
-		$("#score").text("SCORE: " + score);
+
+$buttons.on("click", function() {
+	var $buttonText = $(this).text();
+	var $answer = questions[countQuestion].answer;
+	if ($buttonText === $answer) {
 		score += 10;
-		// countQuestion++;
 	} else {
-		$("#score").text("SCORE: " + score);
+		score -= 5;
 	}
-	// console.log(countQuestion);
-	getNextQuestion();
+	$("#score").text("SCORE: " + score);
+	countQuestion++;
+	getQuestion();
 });
