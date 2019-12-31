@@ -3,8 +3,14 @@ var score = 0;
 var questionArr = [];
 // use to track questions asked;
 var countQuestion = 0;
-//
+// all buttons
 var $buttons = $("#button1, #button2, #button3, #button4");
+// id for the High Scores form;
+var submitName = $("#code-form");
+// id for the High Scores input;
+var submitInput = $("#input");
+// array to hold user data, appended to ol ("#high-score");
+var scoreArr = [];
 
 var questions = [
 	{
@@ -47,38 +53,58 @@ var questions = [
 	},
 	{
 		title:
-			"where is the javascript link found without adding a attribute to defer",
+			"where is the javascript link found without adding an attribute to defer",
 		choice: ["<head>", "<body>", "<style>", "<script>"],
 		answer: "<body>"
 	}
 ];
+
 // let shuffledQuestion = questions[Math.random(Math.floor() * questions.length)];
-// begin the game;
 $(".questions").text(
-	"Press start to begin the quiz, you will have 10 seconds per question."
+	"Press start to begin the quiz, you will have 65 seconds to complete the quiz."
 );
+
+var countdown = 65;
+function setTime() {
+	var timerInterval = setInterval(function() {
+		countdown--;
+		$("#seconds").text(countdown + " :SECONDS LEFT");
+		if (countdown == 0) {
+			clearInterval(timerInterval);
+			endGame();
+			alert("Game Over");
+		}
+	}, 1000);
+}
 // start the quiz;
 $("#startQuiz").on("click", startGame);
 // game function
 function startGame() {
-	$(".start").addClass("start-hide");
+	$(".start").addClass("hide");
 	$(".answer").removeClass("answer");
 	getQuestion();
+	setTime();
 }
-// get a question & get a new question.
+// get a question & get a new question;
 function getQuestion() {
 	if (countQuestion < questions.length) {
 		$(".questions").text(questions[countQuestion].title);
-
-		// todo: generate buttons from choices
+		// generate buttons from choices;
 		$buttons.each(function(i) {
+			// (this) == the current button in the loop;setting the poison of the text and buttons;
 			var $button = $(this);
 			$button.text(questions[countQuestion].choice[i]);
 		});
+	} else {
+		endGame();
+		loadScores();
 	}
 }
 
+// checking if button clicked choice == answer;
 $buttons.on("click", function() {
+	$("#score");
+	// "this" is the index position relevant to the click and to the countQuestion, so the button that is being clicked;
 	var $buttonText = $(this).text();
 	var $answer = questions[countQuestion].answer;
 	if ($buttonText === $answer) {
@@ -90,3 +116,43 @@ $buttons.on("click", function() {
 	countQuestion++;
 	getQuestion();
 });
+
+function endGame() {
+	$buttons.addClass("hide");
+	$("#question").addClass("hide");
+	$("#code").text("HIGH SCORES");
+	$("#input").removeClass("hide");
+}
+
+submitName.on("submit", function(e) {
+	e.preventDefault();
+	// console.log($(this));
+	printScore();
+});
+
+function printScore() {
+	$("#high-score").text("");
+	var scoreName = submitInput.val();
+	var highScores = scoreName + " : " + score;
+	scoreArr.push(highScores);
+	// console.log(highScores);
+	// console.log(scoreArr);
+
+	for (i = 0; i < scoreArr.length; i++) {
+		// console.log(scoreArr[i]);
+		var newLi = $("<li>").text(scoreArr[i]);
+		var listItems = $("#high-score");
+		listItems.append(newLi);
+	}
+	var stringifyListItems = JSON.stringify(highScores);
+	localStorage.setItem("listItems", stringifyListItems);
+	// console.log(stringifyListItems);
+}
+function loadScores() {
+	var getScores = localStorage.getItem("listItems");
+	var gotScores = JSON.parse(getScores);
+	if (gotScores != null) {
+		scoreArr.push(gotScores);
+		printScore();
+	}
+}

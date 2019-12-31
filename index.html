@@ -12,19 +12,15 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/script.js" async defer></script>
-
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav id="navbar" class="navbar navbar-light">
         <span id="score" class="navbar-brand mb-0 h3">
-            <div id="score"></div>
+            <div id="score">SCORE:</div>
         </span>
         <span id="seconds" class="navbar-brand mb-0 h3 justify-content-end">
-            <div id="seconds"></div>
+            <div id="seconds">:SECONDS LEFT</div>
         </span>
     </nav>
 
@@ -32,7 +28,15 @@
         <div class="row">
             <div class="container head-container">
                 <div class="container-head col-sm-12 col-md-12 col-lg-12">
-                    <h1>Code Quiz</h1>
+                    <h1 id="code">Code Quiz</h1>
+                    <form id="code-form">
+                        <div class="form-group">
+                            <input id="input" class="form-control form-control-lg hide" type="text"
+                                placeholder="Enter Username:" />
+                        </div>
+                        <ol id="high-score">
+                        </ol>
+                    </form>
                 </div>
             </div>
             <div class="container questions-container">
@@ -40,17 +44,17 @@
                     <div class=" col-sm-12 col-md-12 col-lg-12">
                         <div class="questions" id="question"></div>
                         <ul id="answers"><br>
-                            <button id="startQuiz" type="button" class="btn btn-secondary btn-lg btn-block  start">Start
+                            <button id="startQuiz" type="button" class="btn btn-secondary btn-lg btn-block start">Start
                                 the
                                 Quiz!</button>
-                            <button id="button1" type="button"
-                                class="btn btn-secondary btn-block answer">answer</button>
-                            <button id="button2" type="button"
-                                class="btn btn-secondary btn-block answer">answer</button>
-                            <button id="button3" type="button"
-                                class="btn btn-secondary btn-block answer">answer</button>
-                            <button id="button4" type="button"
-                                class="btn btn-secondary btn-block answer">answer</button>
+                            <button id="button1" type="button" class="btn btn btn-block answer"
+                                style="outline: none;">answer</button>
+                            <button id="button2" type="button" class="btn btn btn-block answer"
+                                style="outline: none;">answer</button>
+                            <button id="button3" type="button" class="btn btn btn-block answer"
+                                style="outline: none;">answer</button>
+                            <button id="button4" type="button" class="btn btn btn-block answer"
+                                style="outline: none;">answer</button>
                         </ul>
                     </div>
                 </div>
@@ -58,6 +62,7 @@
         </div>
     </div>
 
+    <footer> John Sasser &COPY;</footer>
 
 </body>
 
