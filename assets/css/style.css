@@ -2,14 +2,14 @@ body {
 	background-image: url(../images/tileable_wood_texture-min.png);
 }
 #navbar {
-	background-image: url(../images/country-quilt-min.png);
+	background-image: url(../images/beanstalk-min.png);
 	border: solid 0.8px indigo;
 	box-shadow: 0 0 22px rgb(132, 85, 24);
 }
 .main-container {
 	box-shadow: 0 0 22px rgb(132, 85, 24);
 	margin-top: 60px;
-	background-image: url(../images/country-quilt-min.png);
+	background-image: url(../images/beanstalk-min.png);
 	line-height: 2em;
 }
 .head-container {
@@ -21,11 +21,7 @@ body {
 	margin: 25px;
 }
 .questions {
-	/* border-radius: 20px;
-	height: 25%;
-	background-color: rgb(112, 156, 156); */
 	font-size: 28px;
-	/* color: rgb(4, 203, 40); */
 	text-align: center;
 	font-style: italic;
 }
@@ -39,8 +35,10 @@ body {
 }
 .btn {
 	background-color: rgb(109, 20, 173);
-	color: whitesmoke;
+	color: greenyellow;
+	width: 60%;
 	margin: auto;
+	margin-bottom: 20px;
 }
 .btn:hover {
 	box-shadow: 0 0 10px rgb(117, 14, 191);
@@ -68,7 +66,7 @@ footer {
 	}
 	.btn {
 		background-color: indigo;
-		width: 80%;
+		width: 100%;
 		/* margin: 0 auto; */
 	}
 	.main-container {

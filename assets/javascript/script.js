@@ -43,7 +43,7 @@ var questions = [
 	{
 		title:
 			"What is the type of loop that continues through a block of code as long as the specified condition remains TRUE?",
-		choice: ["for", "durning", "while", "after"],
+		choice: ["while", "durning", "for", "after"],
 		answer: "while"
 	},
 	{
@@ -69,10 +69,13 @@ function setTime() {
 	var timerInterval = setInterval(function() {
 		countdown--;
 		$("#seconds").text(countdown + " :SECONDS LEFT");
-		if (countdown == 0) {
+		if (countdown == 35) {
+			$("#seconds").css("color", "orange");
+		} else if (countdown == 15) {
+			$("#seconds").css("color", "red");
+		} else if (countdown == 0) {
 			clearInterval(timerInterval);
 			endGame();
-			alert("Game Over");
 		}
 	}, 1000);
 }
@@ -131,28 +134,30 @@ submitName.on("submit", function(e) {
 });
 
 function printScore() {
-	$("#high-score").text("");
+	loadScores();
 	var scoreName = submitInput.val();
 	var highScores = scoreName + " : " + score;
 	scoreArr.push(highScores);
+	var stringifyListItems = JSON.stringify(scoreArr);
+	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(highScores);
 	// console.log(scoreArr);
-
+	$("#high-score").text("");
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
 		var newLi = $("<li>").text(scoreArr[i]);
 		var listItems = $("#high-score");
 		listItems.append(newLi);
 	}
-	var stringifyListItems = JSON.stringify(highScores);
-	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(stringifyListItems);
 }
+
 function loadScores() {
 	var getScores = localStorage.getItem("listItems");
 	var gotScores = JSON.parse(getScores);
+	debugger;
 	if (gotScores != null) {
-		scoreArr.push(gotScores);
-		printScore();
+		scoreArr = gotScores;
+		// printScore();
 	}
 }
