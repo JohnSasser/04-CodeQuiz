@@ -46,6 +46,7 @@ body {
 	background-color: rgb(109, 20, 173);
 	color: greenyellow;
 	width: 60%;
+	height: 50px;
 	margin: auto;
 	margin-bottom: 20px;
 }
@@ -53,6 +54,8 @@ body {
 	box-shadow: 0 0 10px rgb(117, 14, 191);
 	background-color: rgb(117, 14, 191);
 	color: white;
+	width: 80%;
+	height: 70px;
 }
 footer {
 	text-align: center;
