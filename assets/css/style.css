@@ -51,7 +51,7 @@ body {
 	background-color: rgb(109, 20, 173);
 	color: greenyellow;
 	width: 60%;
-	height: 50px;
+	/* height: 50px; */
 	margin: auto;
 	margin-bottom: 20px;
 }
@@ -76,6 +76,12 @@ footer {
 	width: 100%;
 }
 @media (max-width: 680px) {
+	.questions-container {
+		padding: 0;
+	}
+	ul {
+		padding: 0;
+	}
 	body {
 		background-color: rgb(62, 62, 62);
 	}
@@ -83,9 +89,21 @@ footer {
 		padding: 0;
 	}
 	.btn {
-		background-color: indigo;
+		background-color: rgb(109, 20, 173);
+		box-shadow: none;
+		color: greenyellow;
 		width: 100%;
-		/* margin: 0 auto; */
+		height: 70px;
+		font-size: 20px;
+		/* margin: none; */
+		margin-bottom: 20px;
+		padding: 0;
+	}
+	.btn:hover {
+		background-color: rgb(109, 20, 173);
+		color: greenyellow;
+		width: 100%;
+		font-size: 20px;
 	}
 	.main-container {
 		padding: 0;
