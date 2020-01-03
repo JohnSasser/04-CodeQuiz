@@ -12,6 +12,11 @@ var submitInput = $("#input");
 // array to hold user data, appended to ol ("#high-score");
 var scoreArr = [];
 
+// var questions = require("./object");
+// import { questions } from "./object.js";
+// let questions = questions;
+
+// $.getScript("./object.js");
 var questions = [
 	{
 		title: "Commonly used data types DO NOT include:",
@@ -59,7 +64,6 @@ var questions = [
 	}
 ];
 
-// let shuffledQuestion = questions[Math.random(Math.floor() * questions.length)];
 $(".questions").text(
 	"Press start to begin the quiz, you will have 80 seconds to complete the quiz."
 );
@@ -95,7 +99,8 @@ function getQuestion() {
 		$(".questions").text(questions[countQuestion].title);
 		// generate buttons from choices;
 		$buttons.each(function(i) {
-			// (this) == the current button in the loop;setting the poison of the text and buttons;
+			// (this) == the current button in the loop;
+			// setting the poison of the text and buttons;
 			var $button = $(this);
 			$button.text(questions[countQuestion].choice[i]);
 		});
@@ -126,6 +131,7 @@ function endGame() {
 	$("#code").text("HIGH SCORES");
 	$("#input").removeClass("hide");
 	loadScores();
+	countdown = 1;
 }
 
 submitName.on("submit", function(e) {
@@ -136,7 +142,6 @@ submitName.on("submit", function(e) {
 });
 
 function printScore() {
-	// loadScores();
 	var scoreName = submitInput.val();
 	var highScores = scoreName + " : " + score;
 	scoreArr.push(highScores);
@@ -144,7 +149,6 @@ function printScore() {
 	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(highScores);
 	// console.log(scoreArr);
-	// $("#high-score").text("");
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
 		var newLi = $("<li>").text(scoreArr[i]);
@@ -160,7 +164,6 @@ function loadScores() {
 	// debugger;
 	if (gotScores != null) {
 		scoreArr = gotScores;
-		// printScore();
 	}
 }
 
