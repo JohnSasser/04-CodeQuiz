@@ -6,8 +6,7 @@ This is a javascript code knowledge quiz powered with html, css, javascript, jQu
 
 This code quiz is built with HTML5, CSS3, Bootstrap, & Javascript using jQuery libraries and JSON storage and data transportation methods. It is a simple quiz with approximately 8 - 10 question about Javascript programing. Use as a brief warm-up before class or a quick refresher on how .js operates.
 
-![photo of start screen](./assets/images/code-quiz.png)
-Format: ![Alt Text](url)
+![Alt text](./assets/images/code-quiz.png?raw=true)
 
 ## Getting Started
 

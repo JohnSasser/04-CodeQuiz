@@ -169,9 +169,11 @@ function restartGame() {
 	var portfolioLink = $(
 		"<a href=https://johnsasser.github.io/02-bsPortfolio/portfolio.html>"
 	);
-	portfolioLink.addClass("btn btn btn-block").text("back to Portfolio");
-	restartButton.addClass("btn btn btn-block").text("Try Again");
-
+	portfolioLink.addClass("btn btn btn-block").text("Back to Portfolio");
+	restartButton.addClass("btn btn btn-block").text("Take Quiz Again");
 	$("#answers").append(portfolioLink);
 	$("#answers").append(restartButton);
+	restartButton.on("click", function() {
+		location.reload(true);
+	});
 }

@@ -1,5 +1,14 @@
+/* html {
+	background-image: url(../images/person-on-watercraft-near-waterfall-1761282.jpg);
+	background-position: center;
+	/* background-attachment: fixed; */
+
+/* }  */
 body {
-	background-image: url(../images/tileable_wood_texture-min.png);
+	background-image: url(../images/wheat.png);
+	/* background-position: center; */
+	/* background-attachment: fixed; */
+	/* overflow: auto; */
 }
 #navbar {
 	background-image: url(../images/beanstalk-min.png);
