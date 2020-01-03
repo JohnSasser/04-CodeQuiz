@@ -137,7 +137,9 @@ function endGame() {
 submitName.on("submit", function(e) {
 	e.preventDefault();
 	// console.log($(this));
+
 	printScore();
+	scoreValues();
 	restartGame();
 });
 
@@ -149,13 +151,16 @@ function printScore() {
 	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(highScores);
 	// console.log(scoreArr);
+
+	// console.log(stringifyListItems);
+}
+function scoreValues() {
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
 		var newLi = $("<li>").text(scoreArr[i]);
 		var listItems = $("#high-score");
 		listItems.append(newLi);
 	}
-	// console.log(stringifyListItems);
 }
 
 function loadScores() {
