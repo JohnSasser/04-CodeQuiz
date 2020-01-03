@@ -61,15 +61,15 @@ var questions = [
 
 // let shuffledQuestion = questions[Math.random(Math.floor() * questions.length)];
 $(".questions").text(
-	"Press start to begin the quiz, you will have 65 seconds to complete the quiz."
+	"Press start to begin the quiz, you will have 80 seconds to complete the quiz."
 );
 
-var countdown = 65;
+var countdown = 80;
 function setTime() {
 	var timerInterval = setInterval(function() {
 		countdown--;
 		$("#seconds").text(countdown + " :SECONDS LEFT");
-		if (countdown == 35) {
+		if (countdown == 40) {
 			$("#seconds").css("color", "orange");
 		} else if (countdown == 15) {
 			$("#seconds").css("color", "red");
@@ -86,6 +86,7 @@ function startGame() {
 	$(".start").addClass("hide");
 	$(".answer").removeClass("answer");
 	getQuestion();
+	loadScores();
 	setTime();
 }
 // get a question & get a new question;
@@ -100,7 +101,6 @@ function getQuestion() {
 		});
 	} else {
 		endGame();
-		loadScores();
 	}
 }
 
@@ -125,16 +125,18 @@ function endGame() {
 	$("#question").addClass("hide");
 	$("#code").text("HIGH SCORES");
 	$("#input").removeClass("hide");
+	loadScores();
 }
 
 submitName.on("submit", function(e) {
 	e.preventDefault();
 	// console.log($(this));
 	printScore();
+	restartGame();
 });
 
 function printScore() {
-	loadScores();
+	// loadScores();
 	var scoreName = submitInput.val();
 	var highScores = scoreName + " : " + score;
 	scoreArr.push(highScores);
@@ -142,7 +144,7 @@ function printScore() {
 	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(highScores);
 	// console.log(scoreArr);
-	$("#high-score").text("");
+	// $("#high-score").text("");
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
 		var newLi = $("<li>").text(scoreArr[i]);
@@ -155,9 +157,21 @@ function printScore() {
 function loadScores() {
 	var getScores = localStorage.getItem("listItems");
 	var gotScores = JSON.parse(getScores);
-	debugger;
+	// debugger;
 	if (gotScores != null) {
 		scoreArr = gotScores;
 		// printScore();
 	}
+}
+
+function restartGame() {
+	var restartButton = $("<button>");
+	var portfolioLink = $(
+		"<a href=https://johnsasser.github.io/02-bsPortfolio/portfolio.html>"
+	);
+	portfolioLink.addClass("btn btn btn-block").text("back to Portfolio");
+	restartButton.addClass("btn btn btn-block").text("Try Again");
+
+	$("#answers").append(portfolioLink);
+	$("#answers").append(restartButton);
 }
