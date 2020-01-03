@@ -12,11 +12,6 @@ var submitInput = $("#input");
 // array to hold user data, appended to ol ("#high-score");
 var scoreArr = [];
 
-// var questions = require("./object");
-// import { questions } from "./object.js";
-// let questions = questions;
-
-// $.getScript("./object.js");
 var questions = [
 	{
 		title: "Commonly used data types DO NOT include:",
@@ -85,7 +80,7 @@ function setTime() {
 }
 // start the quiz;
 $("#startQuiz").on("click", startGame);
-// game function
+// game function call to start the timer and get questions;
 function startGame() {
 	$(".start").addClass("hide");
 	$(".answer").removeClass("answer");
@@ -101,6 +96,7 @@ function getQuestion() {
 		$buttons.each(function(i) {
 			// (this) == the current button in the loop;
 			// setting the poison of the text and buttons;
+			// giving button value from object;
 			var $button = $(this);
 			$button.text(questions[countQuestion].choice[i]);
 		});
@@ -111,8 +107,9 @@ function getQuestion() {
 
 // checking if button clicked choice == answer;
 $buttons.on("click", function() {
-	$("#score");
-	// "this" is the index position relevant to the click and to the countQuestion, so the button that is being clicked;
+	$("#code").addClass("hide");
+	// "this" is the index position relevant to the click and to the countQuestion,
+	// so the button that is being clicked;
 	var $buttonText = $(this).text();
 	var $answer = questions[countQuestion].answer;
 	if ($buttonText === $answer) {
@@ -130,6 +127,7 @@ function endGame() {
 	$("#question").addClass("hide");
 	$("#code").text("HIGH SCORES");
 	$("#input").removeClass("hide");
+	$("#code").removeClass("hide");
 	loadScores();
 	countdown = 1;
 }
@@ -177,7 +175,10 @@ function restartGame() {
 	var portfolioLink = $(
 		"<a href=https://johnsasser.github.io/02-bsPortfolio/portfolio.html>"
 	);
-	portfolioLink.addClass("btn btn btn-block").text("Back to Portfolio");
+	portfolioLink
+		.addClass("btn btn btn-block")
+		.text("Back to Portfolio")
+		.css("size", "100%");
 	restartButton.addClass("btn btn btn-block").text("Take Quiz Again");
 	$("#answers").append(portfolioLink);
 	$("#answers").append(restartButton);
