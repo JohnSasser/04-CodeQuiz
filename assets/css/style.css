@@ -20,6 +20,7 @@ body {
 	margin-top: 60px;
 	background-image: url(../images/beanstalk-min.png);
 	line-height: 2em;
+	margin-bottom: 60px;
 }
 .head-container {
 	text-align: center;
@@ -33,6 +34,10 @@ body {
 	font-size: 28px;
 	text-align: center;
 	font-style: italic;
+}
+#code {
+	color: purple;
+	font-size: 60px;
 }
 
 /* hides the answer buttons.  */
@@ -56,6 +61,7 @@ body {
 	color: white;
 	width: 80%;
 	height: 70px;
+	font-size: xx-large;
 }
 footer {
 	text-align: center;
