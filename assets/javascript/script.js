@@ -84,6 +84,7 @@ $("#startQuiz").on("click", startGame);
 function startGame() {
 	$(".start").addClass("hide");
 	$(".answer").removeClass("answer");
+	$("#code").addClass("hide");
 	getQuestion();
 	loadScores();
 	setTime();
@@ -107,7 +108,6 @@ function getQuestion() {
 
 // checking if button clicked choice == answer;
 $buttons.on("click", function() {
-	$("#code").addClass("hide");
 	// "this" is the index position relevant to the click and to the countQuestion,
 	// so the button that is being clicked;
 	var $buttonText = $(this).text();
