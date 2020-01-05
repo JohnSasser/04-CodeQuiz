@@ -108,6 +108,7 @@ function printScore() {
 
 	// console.log(stringifyListItems);
 }
+
 function scoreValues() {
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
