@@ -13,8 +13,8 @@ var submitInput = $("#input");
 var scoreArr = [];
 
 // import { questions } from "./object";
+// $.getScript("./object");
 
-$.getScript("./object");
 $(".questions").text(
 	"Press start to begin the quiz, you will have 80 seconds to complete the quiz."
 );
@@ -64,7 +64,7 @@ function getQuestion() {
 
 // checking if button clicked choice == answer;
 $buttons.on("click", function() {
-	// "this" is the index position relevant to the click and to the countQuestion,
+	// $(this) is the index position relevant to the click and to the countQuestion,
 	// so the button that is being clicked;
 	var $buttonText = $(this).text();
 	var $answer = questions[countQuestion].answer;
@@ -105,7 +105,6 @@ function printScore() {
 	localStorage.setItem("listItems", stringifyListItems);
 	// console.log(highScores);
 	// console.log(scoreArr);
-
 	// console.log(stringifyListItems);
 }
 
