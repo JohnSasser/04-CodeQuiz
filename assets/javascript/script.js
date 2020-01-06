@@ -3,13 +3,13 @@ var score = 0;
 var questionArr = [];
 // use to track questions asked;
 var countQuestion = 0;
-// all buttons
+// all buttons;
 var $buttons = $("#button1, #button2, #button3, #button4");
 // id for the High Scores form;
 var submitName = $("#code-form");
 // id for the High Scores input;
 var submitInput = $("#input");
-// array to hold user data, appended to ul ("#high-score");
+// array to hold user data, appended to ul ("#high-score") and sent to local storage;
 var scoreArr = [];
 
 // import { questions } from "./object";
@@ -64,8 +64,8 @@ function getQuestion() {
 
 // checking if button clicked choice == answer;
 $buttons.on("click", function() {
-	// $(this) is the index position relevant to the click and to the countQuestion,
-	// so the button that is being clicked;
+	// $(this) is the index position relevant to the click and to the countQuestion[index],
+	// so...the button that is being clicked;
 	var $buttonText = $(this).text();
 	var $answer = questions[countQuestion].answer;
 	if ($buttonText === $answer) {
