@@ -18,8 +18,10 @@ var scoreArr = [];
 $(".questions").text(
 	"Press start to begin the quiz, you will have 80 seconds to complete the quiz."
 );
-
+// countdown is used to set the starting time
 var countdown = 80;
+// time interval set to one second that decrements and changes the,
+// css attribute at the 50% and 20% mark on time left;
 function setTime() {
 	var timerInterval = setInterval(function() {
 		countdown--;
@@ -36,7 +38,8 @@ function setTime() {
 }
 // start the quiz;
 $("#startQuiz").on("click", startGame);
-// game function call to start the timer and get questions;
+// game function call to start the timer and get questions,
+// also load the scores from local storage and start the countdown;
 function startGame() {
 	$(".start").addClass("hide");
 	$(".answer").removeClass("answer");
@@ -77,7 +80,7 @@ $buttons.on("click", function() {
 	countQuestion++;
 	getQuestion();
 });
-
+// hides all questions{} and shows the high scores board;
 function endGame() {
 	$buttons.addClass("hide");
 	$("#question").addClass("hide");
@@ -87,7 +90,7 @@ function endGame() {
 	loadScores();
 	countdown = 1;
 }
-
+// submit event for the high scores page;
 submitName.on("submit", function(e) {
 	e.preventDefault();
 	// console.log($(this));
@@ -96,7 +99,9 @@ submitName.on("submit", function(e) {
 	scoreValues();
 	restartGame();
 });
-
+// saves the submit events value for high score username to a var,
+// pushes the value and the score to an array;
+// sends the array to local storage;
 function printScore() {
 	var scoreName = submitInput.val();
 	var highScores = scoreName + " : " + score;
@@ -107,7 +112,8 @@ function printScore() {
 	// console.log(scoreArr);
 	// console.log(stringifyListItems);
 }
-
+// create list-items for the username and score,
+// print the values collected before and append them to the div id;
 function scoreValues() {
 	for (i = 0; i < scoreArr.length; i++) {
 		// console.log(scoreArr[i]);
@@ -116,7 +122,8 @@ function scoreValues() {
 		listItems.append(newLi);
 	}
 }
-
+// retrieve the user name and score from local storage,
+// parse the scores from printScores and have them ready for loading the game;
 function loadScores() {
 	var getScores = localStorage.getItem("listItems");
 	var gotScores = JSON.parse(getScores);
@@ -125,7 +132,8 @@ function loadScores() {
 		scoreArr = gotScores;
 	}
 }
-
+// give a way to restart the game or head back to the portfolio,
+// this was the only button group I did not create in html.
 function restartGame() {
 	var restartButton = $("<button>");
 	var portfolioLink = $(
