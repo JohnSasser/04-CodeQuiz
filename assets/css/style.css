@@ -1,20 +1,13 @@
-/* html {
-	background-image: url(../images/person-on-watercraft-near-waterfall-1761282.jpg);
-	background-position: center;
-	/* background-attachment: fixed; */
-
-/* }  */
 body {
 	background-image: url(../images/wheat.png);
-	/* background-position: center; */
-	/* background-attachment: fixed; */
-	/* overflow: auto; */
 }
+
 #navbar {
 	background-image: url(../images/beanstalk-min.png);
 	border: solid 0.8px indigo;
 	box-shadow: 0 0 22px rgb(132, 85, 24);
 }
+
 .main-container {
 	box-shadow: 0 0 22px rgb(132, 85, 24);
 	margin-top: 60px;
@@ -22,19 +15,23 @@ body {
 	line-height: 2em;
 	margin-bottom: 60px;
 }
+
 .head-container {
 	text-align: center;
 	margin-top: 20px;
 	color: black;
 }
+
 .row {
 	margin: 25px;
 }
+
 .questions {
 	font-size: 28px;
 	text-align: center;
 	font-style: italic;
 }
+
 #code {
 	color: purple;
 	font-size: 60px;
@@ -47,9 +44,12 @@ body {
 .hide {
 	display: none;
 }
+/* end answer hide */
+
 ul {
 	list-style: none;
 }
+
 .btn {
 	background-color: rgb(109, 20, 173);
 	color: greenyellow;
@@ -58,6 +58,7 @@ ul {
 	margin: auto;
 	margin-bottom: 20px;
 }
+
 .btn:hover {
 	box-shadow: 0 0 10px rgb(117, 14, 191);
 	background-color: rgb(117, 14, 191);
@@ -67,6 +68,7 @@ ul {
 	font-size: xx-large;
 	transition: 0.5s;
 }
+
 footer {
 	text-align: center;
 	background-color: #ccc;
@@ -79,6 +81,7 @@ footer {
 	bottom: 0;
 	width: 100%;
 }
+
 @media (max-width: 680px) {
 	.questions-container {
 		padding: 0;
